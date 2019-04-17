@@ -1,0 +1,5 @@
+1、express 生成项目架构
+
+2、路由，里写对数据库的增删改查的接口 (mongodb-curd）
+
+3、postman 测试接口
