@@ -62,7 +62,6 @@ router.post('/api/getUserOne', function (req, res, next) {
    * 
    */
   let id = req.body.id;//
-  console.log(name)
   mongo.find(db, col, {"_id":id}, function (result) {
     if (!result) {
       res.json({
@@ -92,7 +91,6 @@ router.post('/api/getUpdate', function (req, res, next) {
   let id = updateObj.id;
   delete updateObj.id;
  
-
    mongo.update(db,col,[{"_id":id},updateObj],function(result){
       if(!result){
         res.json({code:0,msg:"更改失败"})

@@ -10,7 +10,9 @@ gulp.task("webserver",()=>{
         host:"169.254.191.1",
         livereload:true,
 		proxies:[
-			{source:"/api/getUser",target:"http://localhost:3000/api/getUser"}
+			{source:"/api/getUser",target:"http://localhost:3000/api/getUser"},
+			{source:"/api/getUserOne",target:"http://localhost:3000/api/getUserOne"}, //查询具体信息
+			{source:"/api/getUpdate",target:"http://localhost:3000/api/getUpdate"}, //更改具体信息
 		]
     }))
 })
