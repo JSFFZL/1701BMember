@@ -11,7 +11,6 @@ gulp.task("webserver",()=>{
         livereload:true,
 		proxies:[
 			{source:"/api/getUser",target:"http://localhost:3000/api/getUser"}
-			
 		]
     }))
 })
