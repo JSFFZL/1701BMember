@@ -11,6 +11,7 @@ require(["mui"], function(mui) {
 	
 	function init() {
 		getUserOne()
+		
 	}
 
 
@@ -56,10 +57,11 @@ require(["mui"], function(mui) {
 					</div>
 					<div class="mui-input-row">
 						<label>爱好</label>
-						<input type="text" class="mui-input-clear hobby" placeholder="${item.hobby}">
+						<input type="text" class="mui-input-clear hobby" placeholder="${item.hobby = item.hobby ? item.hobby : "无"}">
 					</div>`
 				})
 				document.querySelector(".table").innerHTML = str + html;
+				updateOk();
 			},
 			error: function(xhr, type, errorThrown) {
 
@@ -72,17 +74,22 @@ require(["mui"], function(mui) {
 			mui.ajax('/api/getUpdate',{
 				data:{
 					id:userId,
-					name:document.querySelector("."),
-					age:,
-					sex:,
-					adress,
-					iphone:,
-					hobby:,
+					name:document.querySelector(".name").value || document.querySelector(".name").placeholder,
+					age:document.querySelector(".age").value || document.querySelector(".age").placeholder,
+					sex:document.querySelector(".sex").value || document.querySelector(".sex").placeholder,
+					adress:document.querySelector(".adress").value || document.querySelector(".adress").placeholder,
+					iphone:document.querySelector(".iphone").value || document.querySelector(".iphone").placeholder,
+					hobby:document.querySelector(".hobby").value || document.querySelector(".hobby").placeholder,
 				},
 				dataType:'json',//服务器返回json格式数据
 				type:'post',//HTTP请求类型
 				timeout:10000,//超时时间设置为10秒；
 				success:function(res){
+					console.log(res);
+					mui.alert(res.msg,'温馨提示','确认',function (e) {
+					  location.href = "../index.html"
+					})
+					// location.href = "../index.html"
 					
 				},
 				error:function(xhr,type,errorThrown){
