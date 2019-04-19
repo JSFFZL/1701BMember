@@ -2,3 +2,13 @@
 	position: absolute !important;
 	right: 80px !important;
 }
+
+.add{
+	position: fixed;
+	z-index: 999;
+	top: 0px;
+	right: 10px;
+}
+.add p{
+	font-size: 40px;
+}

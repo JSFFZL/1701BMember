@@ -61,7 +61,10 @@ require(["mui"], function(mui) {
 	function muiDelete() {
 		mui(".list").on("tap", ".delete", function() {
 			let userId = this.getAttribute("data-id");
-
+			
+			let _this = this;
+			// console.log(this.parentNode.remove());
+			
 			mui.confirm('您是否要删除本条数据', '警告', ['确认', '取消'], function(e) {
 				// console.log(e.index);
 				if(e.index === 0){
@@ -77,6 +80,7 @@ require(["mui"], function(mui) {
 						success:function(res){
 							mui.alert(res.msg,'提示','确定',function (e) {
 								//dom节点 删除 
+								_this.parentNode.remove();
 								// getUser();
 							})
 						},
@@ -90,6 +94,11 @@ require(["mui"], function(mui) {
 		})
 	}
 
+	function add(){
+		document.querySelector(".add").addEventListener("tap",function(){
+			location.href="";
+		})
+	}
 
 	//渲染方法
 	function render(res) {
